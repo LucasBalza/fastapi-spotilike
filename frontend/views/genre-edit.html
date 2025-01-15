@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Édition d'un Genre</title>
+        <link rel="stylesheet" href="../styles.css">
+    </head>
+    <body>
+        <!-- Menu de navigation -->
+        <nav>
+            <ul class="menu">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="albums.html">Albums</a></li>
+                <li><a href="artists.html">Artistes</a></li>
+                <li><a href="songs.html">Morceaux</a></li>
+                <li><a href="genres.html">Genres</a></li>
+                <li><a href="signup.html">Sign up</a></li>
+                <li><a href="login.html">Sign in</a></li>
+            </ul>
+        </nav>
+        <main class="container">
+            <h1>Modifier un Genre</h1>
+
+            <form id="editGenreForm">
+
+                <label for="genreTitle">Titre :</label>
+                <input type="text" id="genreTitle" placeholder="Titre du genre"
+                    required><br><br>
+
+                <label for="genreDescription">Description :</label>
+                <textarea id="genreDescription"
+                    placeholder="Description du genre"
+                    required></textarea><br><br>
+
+                <button type="submit">Mettre à jour</button>
+            </form>
+
+            <p id="responseMessage" style="color: green;"></p>
+            <p id="errorMessage" style="color: red;"></p>
+        </main>
+        <script src="../scripts/genre-edit.js"></script>
+    </body>
+</html>

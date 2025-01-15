@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Artistes</title>
+        <link rel="stylesheet" href="../styles.css">
+    </head>
+    <body>
+        <!-- Menu de navigation -->
+        <nav>
+            <ul class="menu">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="albums.html">Albums</a></li>
+                <li><a href="artists.html">Artistes</a></li>
+                <li><a href="songs.html">Morceaux</a></li>
+                <li><a href="genres.html">Genres</a></li>
+                <li><a href="signup.html">Sign up</a></li>
+                <li><a href="login.html">Sign in</a></li>
+            </ul>
+        </nav>
+        <main class="container">
+            <h1>Liste des Artistes</h1>
+
+            <!-- Tableau pour afficher les artistes -->
+            <table id="artists-table">
+                <thead>
+                    <tr>
+                        <th>Nom de l'artiste</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="artists-list">
+                    <!-- Les artistes seront ajoutés ici par JavaScript -->
+                </tbody>
+            </table>
+
+            <!-- Section pour afficher les morceaux d'un artiste -->
+            <div id="artist-details">
+                <!-- Titre affichant le nom de l'artiste -->
+                <h2 id="artist-name"></h2>
+
+                <!-- Liste des morceaux de l'artiste -->
+                <ul id="artist-songs-list">
+                    <!-- Les morceaux seront ajoutés ici -->
+                </ul>
+            </div>
+        </main>
+        </main>
+        <script src="../scripts/artists.js"></script>
+    </body>
+</html>

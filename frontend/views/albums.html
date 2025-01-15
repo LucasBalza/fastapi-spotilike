@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Albums</title>
+        <link rel="stylesheet" href="../styles.css">
+    </head>
+    <body>
+        <!-- Menu de navigation -->
+        <nav>
+            <ul class="menu">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="albums.html">Albums</a></li>
+                <li><a href="artists.html">Artistes</a></li>
+                <li><a href="songs.html">Morceaux</a></li>
+                <li><a href="genres.html">Genres</a></li>
+                <li><a href="signup.html">Sign up</a></li>
+                <li><a href="login.html">Sign in</a></li>
+            </ul>
+        </nav>
+        <main class="container">
+            <!-- Bouton qui pointe vers la page album-add -->
+            <div class="container">
+                <a href="album-add.html">
+                    <button>Ajouter un nouvel album</button>
+                </a>
+            </div>
+
+            <h1>Liste des Albums</h1>
+
+            <!-- Tableau pour afficher les albums -->
+            <table id="albums-table">
+                <thead>
+                    <tr>
+                        <th>Titre</th>
+                        <th>Artiste</th>
+                        <th>Date de Sortie</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="albums-list">
+                    <!-- Les albums seront ajoutés ici par JavaScript -->
+                </tbody>
+            </table>
+
+        </main>
+
+        <script src="../scripts/album.js"></script>
+    </body>
+</html>
