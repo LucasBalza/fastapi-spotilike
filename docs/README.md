@@ -11,12 +11,13 @@ La base de données relationnelle est gérée via MySQL Workbench, version 8.0.
 ### 📝 Scripts de données
 
 Les scripts des jeux de données se trouvent dans le sous-dossier `db_data` lui-même dans le dossier `docs` du projet. Voici l'ordre recommandé pour leur exécution : 
-1. Artistes
-2. Genres
-3. Albums
-4. Morceaux
+1. artists.sql
+2. genres.sql
+3. albums.sql
+4. morceaux.sql
+5. morceau_genre.sql
 
-Pour la gestion des images, une chaîne de caractères est utilisée pour stocker l'URL, bien que ces URLs ne soient pas présentes dans le jeu de données.
+Pour la gestion des images, une chaîne de caractères est utilisée pour stocker l'URLou le nom de l'image, bien que ces URLs ne soient pas présentes dans le jeu de données.
 
 ### ⚙️ Fichier de configuration
 
@@ -48,7 +49,7 @@ Tous les modules nécessaires sont listés dans le fichier `requirements.txt` du
 
 ## 🌍 Front-end
 
-Le front-end est développé avec une stack technologique classique : **HTML**, **CSS**, **JavaScript**. Tous les fichiers relatifs au front-end se trouvent dans le dossier `frontend`, avec des sous-dossiers pour les vues et les scripts.
+Le front-end est développé avec une stack technologique classique : **HTML**, **CSS**, **JavaScript**. Le CSS a été réalisé en grande partie à l'aide de Bootstrap et quelques classes définies dans le fichier `styles.css`. Tous les fichiers relatifs au front-end se trouvent dans le dossier `frontend`, avec des sous-dossiers pour les vues et les scripts.
 
 ### 🚀 Lancer le front-end
 
