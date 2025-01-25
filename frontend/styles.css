@@ -1,76 +1,111 @@
-* {
-    font-family: Calibri;
-}
-
-/* Assurez-vous que body occupe toute la hauteur de la page */
+/* Général */
 body {
-    align-items: center; 
-    min-height: 100vh;
-    margin: 0; 
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
 }
 
-/* Pour centrer le contenu spécifique dans le main */
-.container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 80%;
-    max-width: 1200px; 
-    margin: 0 auto;
-    padding: 20px; 
-    box-sizing: border-box; 
-}
-
-/* Pour les éléments spécifiques comme le bouton */
-button {
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-bottom: 20px;
-    margin:5px;
-}
-
-button:hover {
-    background-color: #45a049;
-}
-
-/* Style pour le menu */
+/* Menu de navigation */
 nav {
-    background-color: #333;
+    background-color: #343a40;
+    color: white;
     padding: 10px 0;
 }
 
-.menu {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-}
-
-.menu li {
-    display: inline;
-}
-
-.menu a {
+nav a {
     color: white;
+    padding: 10px 15px;
     text-decoration: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    transition: background-color 0.3s;
 }
 
-.menu a:hover {
-    background-color: #555;
+
+nav .navbar-nav {
+    display: flex;
+    flex-direction: row;
 }
 
-/* Contenu principal */
-main {
+.navbar-brand {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+/* Conteneur principal */
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
     padding: 20px;
+}
+
+h1, h2 {
+    color: #333;
+    font-size: 2rem;
+    margin-bottom: 20px;
     text-align: center;
+}
+
+/* Tableaux */
+table {
+    width: 100%;
+    margin: 20px 0;
+    border-collapse: collapse;
+}
+
+/* Boutons */
+button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+td>button {
+    margin-right: 10px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Formulaires */
+form {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+form input, form select, form textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+form button {
+    width: 100%;
+    background-color: #28a745;
+    font-size: 1.2rem;
+}
+
+form button:hover {
+    background-color: #218838;
+}
+
+/* Messages d'erreur ou succès */
+#responseMessage {
+    color: green;
+    font-weight: bold;
+}
+
+#errorMessage {
+    color: red;
+    font-weight: bold;
 }

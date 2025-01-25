@@ -38,6 +38,12 @@ Pour exécuter l'API, ouvrez un terminal et activez l'environnement de développ
 .venv\Scripts\activate
 ```
 
+Exécuter ensuite la commande suivante pour lancer le run de l'API : 
+```
+uvicorn main:app --reload
+```
+
+
 Tous les modules nécessaires sont listés dans le fichier `requirements.txt` du dossier `Docs`.
 
 ## 🌍 Front-end

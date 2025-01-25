@@ -27,15 +27,16 @@ function displayArtists(artists) {
         tr.appendChild(nameCell);
 
         const actionsCell = document.createElement('td');
-        const addButton = document.createElement('button');
-        addButton.textContent = 'Voir les morceaux';
-        addButton.onclick = () => showArtistSongs(artist.id);
-        actionsCell.appendChild(addButton);
 
         const updateButton = document.createElement('button');
         updateButton.textContent = 'Modifier';
         updateButton.onclick = () => window.location.href = `artist-edit.html?artiste_id=${artist.id}`;
         actionsCell.appendChild(updateButton);
+
+        const detailsButton = document.createElement('button');
+        detailsButton.textContent = 'Voir les morceaux';
+        detailsButton.onclick = () => window.location.href = `artist-songs.html?artiste_id=${artist.id}`;
+        actionsCell.appendChild(detailsButton);
 
         const deleteButton = document.createElement('button');
         deleteButton.textContent = 'Supprimer';
@@ -47,39 +48,6 @@ function displayArtists(artists) {
         // Ajouter la ligne à la table
         artistsList.appendChild(tr);
     });
-}
-
-// Fonction pour afficher les morceaux d'un artiste
-async function showArtistSongs(artistId) {
-    try {
-        const response = await fetch(`${apiUrl}/artists/${artistId}/songs`);
-        const data = await response.json();
-
-        // Extraire les morceaux et l'artiste de la réponse
-        const songs = data.songs;
-        const artistName = data.artist;
-
-        const songsList = document.getElementById('artist-songs-list');
-        songsList.innerHTML = '';
-
-        // Vérifier si des morceaux ont été trouvés
-        if (songs.length > 0) {
-            // Afficher le nom de l'artiste
-            const artistHeader = document.getElementById('artist-name');
-            artistHeader.textContent = `Morceaux de l'artiste : ${artistName}`;
-
-            // Afficher les morceaux
-            songs.forEach(song => {
-                const li = document.createElement('li');
-                li.textContent = `${song.titre} (Durée: ${song.duree} min)`;
-                songsList.appendChild(li);
-            });
-        } else {
-            songsList.innerHTML = '<li>Aucun morceau trouvé pour cet artiste</li>';
-        }
-    } catch (error) {
-        console.error('Erreur lors de la récupération des morceaux de l\'artiste:', error);
-    }
 }
 
 async function updateArtist(artistId, updatedData) {

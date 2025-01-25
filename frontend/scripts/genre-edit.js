@@ -1,3 +1,5 @@
+const apiUrl = 'http://127.0.0.1:8000/api';
+
 // Récupérer l'ID du genre depuis l'URL
 const urlParams = new URLSearchParams(window.location.search);
 const genreId = urlParams.get('genre_id');
@@ -51,7 +53,7 @@ document.getElementById("editGenreForm").addEventListener("submit", async functi
 // Charger les données existantes du genre
 async function fetchGenreDetails() {
     try {
-        const response = await fetch(`http://127.0.0.1:8000/api/genre/${genreId}`);
+        const response = await fetch(`${apiUrl}/genre/${genreId}`);
         if (response.ok) {
             const genre = await response.json();
             document.getElementById("genreTitle").value = genre.titre;

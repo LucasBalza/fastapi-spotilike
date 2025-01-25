@@ -1,3 +1,5 @@
+const apiUrl = 'http://127.0.0.1:8000/api';
+
 // Récupérer l'ID de l'artiste depuis l'URL
 const urlParams = new URLSearchParams(window.location.search);
 const artistId = urlParams.get('artiste_id');
@@ -26,7 +28,7 @@ document.getElementById("artistForm").addEventListener("submit", async function(
 
     try {
         // Faire une requête PUT pour modifier l'artiste
-        const response = await fetch(`http://127.0.0.1:8000/api/artists/${artistId}`, {
+        const response = await fetch(`${apiUrl}/artists/${artistId}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -53,7 +55,7 @@ document.getElementById("artistForm").addEventListener("submit", async function(
 // Charger les données existantes de l'artiste
 async function fetchArtistDetails() {
     try {
-        const response = await fetch(`http://127.0.0.1:8000/api/artists/${artistId}`);
+        const response = await fetch(`${apiUrl}/artists/${artistId}`);
         if (response.ok) {
             const artist = await response.json();
             document.getElementById("nom_artiste").value = artist.nom_artiste;

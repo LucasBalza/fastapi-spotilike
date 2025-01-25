@@ -1,13 +1,13 @@
+const apiUrl = 'http://127.0.0.1:8000/api';
+
 const form = document.getElementById('login-form');
 const errorMessage = document.getElementById('error-message');
 const successMessage = document.getElementById('success-message');
-const tokenOutput = document.getElementById('token-output');
 
 // Fonction pour réinitialiser les messages
 function resetMessages() {
     errorMessage.style.display = 'none';
     successMessage.style.display = 'none';
-    tokenOutput.style.display = 'none';
 }
 
 // Écouteur d'événement sur le formulaire
@@ -29,7 +29,7 @@ form.addEventListener('submit', async (event) => {
 
     try {
         // Envoi de la requête à l'API pour la connexion
-        const response = await fetch('http://127.0.0.1:8000/api/users/login', {
+        const response = await fetch(`${apiUrl}/users/login`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -52,8 +52,6 @@ form.addEventListener('submit', async (event) => {
                 successMessage.style.display = 'block';
                 successMessage.innerText = "Connexion réussie !";
 
-                tokenOutput.style.display = 'block';
-                tokenOutput.innerText = `Token JWT :\n${data.access_token}`;
             } else {
                 throw new Error("Le token JWT est manquant dans la réponse.");
             }

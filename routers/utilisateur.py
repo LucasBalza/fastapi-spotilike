@@ -8,7 +8,7 @@ from schemas.utilisateur import UtilisateurCreate, UtilisateurOut
 
 router = APIRouter()
 
-@router.post("/users/signup", response_model=UtilisateurOut)
+@router.post("/api/users/signup", response_model=UtilisateurOut)
 async def signup_user(user: UtilisateurCreate, db: Session = Depends(get_db)):
     # Vérifier si un utilisateur avec ce nom ou email existe déjà
     existing_user = db.query(Utilisateur).filter(

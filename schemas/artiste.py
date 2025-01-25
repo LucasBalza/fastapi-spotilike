@@ -5,3 +5,6 @@ class ArtistUpdate(BaseModel):
     nom_artiste: str
     avatar: str
     biographie:str
+    
+    class Config:
+        orm_mode = True

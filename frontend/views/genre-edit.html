@@ -4,41 +4,66 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Édition d'un Genre</title>
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" href="../styles.css">
     </head>
     <body>
-        <!-- Menu de navigation -->
-        <nav>
-            <ul class="menu">
-                <li><a href="index.html">Accueil</a></li>
-                <li><a href="albums.html">Albums</a></li>
-                <li><a href="artists.html">Artistes</a></li>
-                <li><a href="songs.html">Morceaux</a></li>
-                <li><a href="genres.html">Genres</a></li>
-                <li><a href="signup.html">Sign up</a></li>
-                <li><a href="login.html">Sign in</a></li>
-            </ul>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="index.html">Spotilike</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="albums.html">Albums</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="artists.html">Artistes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="songs.html">Morceaux</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="genres.html">Genres</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="signup.html">Sign up</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.html">Sign in</a>
+                    </li>
+                </ul>
+            </div>
         </nav>
-        <main class="container">
-            <h1>Modifier un Genre</h1>
+
+        <main class="container mt-5">
+            <h1 class="mb-4">Modifier un Genre</h1>
 
             <form id="editGenreForm">
+                <div class="form-group">
+                    <label for="genreTitle">Titre :</label>
+                    <input type="text" id="genreTitle" class="form-control" placeholder="Titre du genre" required>
+                </div>
 
-                <label for="genreTitle">Titre :</label>
-                <input type="text" id="genreTitle" placeholder="Titre du genre"
-                    required><br><br>
+                <div class="form-group">
+                    <label for="genreDescription">Description :</label>
+                    <textarea id="genreDescription" class="form-control" placeholder="Description du genre" required></textarea>
+                </div>
 
-                <label for="genreDescription">Description :</label>
-                <textarea id="genreDescription"
-                    placeholder="Description du genre"
-                    required></textarea><br><br>
-
-                <button type="submit">Mettre à jour</button>
+                <button type="submit" class="btn btn-primary">Mettre à jour</button>
             </form>
 
-            <p id="responseMessage" style="color: green;"></p>
+            <p id="responseMessage" class="mt-3" style="color: green;"></p>
             <p id="errorMessage" style="color: red;"></p>
         </main>
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
         <script src="../scripts/genre-edit.js"></script>
     </body>
 </html>

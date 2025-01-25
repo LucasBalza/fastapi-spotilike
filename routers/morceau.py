@@ -5,6 +5,7 @@ from models.artiste import Artiste
 from models.genre import Genre
 from models.morceau import Morceau
 from database import get_db
+from sqlalchemy.orm import joinedload
 
 router = APIRouter()
 
@@ -25,46 +26,4 @@ def get_morceau(morceau_id: int, db: Session = Depends(get_db)):
         return morceau
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Erreur lors de la récupération du morceau: {str(e)}")
-
-@router.post("/api/songs/")
-def create_morceau(
-    titre: str,
-    duree: float,
-    artiste_id: int,
-    album_id: int,
-    genre_ids: list[int],  # Liste des genres associés
-    db: Session = Depends(get_db)
-):
-    # Vérification si l'artiste existe
-    artiste = db.query(Artiste).filter(Artiste.id == artiste_id).first()
-    if not artiste:
-        raise HTTPException(status_code=404, detail="Artiste non trouvé")
-
-    # Vérification si l'album existe
-    album = db.query(Album).filter(Album.id == album_id).first()
-    if not album:
-        raise HTTPException(status_code=404, detail="Album non trouvé")
-    
-    db_morceau = Morceau(
-        titre=titre,
-        duree=duree,
-        artiste_id=artiste.id,  # Associer l'artiste par ID
-        album_id=album.id       # Associer l'album par ID
-    )
-
-    # Ajouter le morceau dans la base de données
-    db.add(db_morceau)
-    db.commit()
-    db.refresh(db_morceau)
-
-    # Ajouter les genres au morceau
-    for genre_id in genre_ids:
-        genre = db.query(Genre).filter(Genre.id == genre_id).first()
-        if genre:
-            db_morceau.genres.append(genre)
-
-    db.commit()
-    db.refresh(db_morceau)
-
-    return db_morceau
 

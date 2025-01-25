@@ -1,3 +1,5 @@
+const apiUrl = 'http://127.0.0.1:8000/api';
+
 // Récupérer l'ID de l'album depuis l'URL
 const urlParams = new URLSearchParams(window.location.search);
 const albumId = urlParams.get('album_id');
@@ -32,7 +34,7 @@ document.getElementById("albumForm").addEventListener("submit", async function(e
 
     try {
         // Faire une requête PUT pour modifier l'album
-        const response = await fetch(`http://127.0.0.1:8000/api/albums/${albumId}`, {
+        const response = await fetch(`${apiUrl}/albums/${albumId}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',

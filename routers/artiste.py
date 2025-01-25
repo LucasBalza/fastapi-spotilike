@@ -40,14 +40,11 @@ def get_artist_songs(artist_id: int, db: Session = Depends(get_db)):
         # Récupérer les morceaux associés à cet artiste
         songs = db.query(Morceau).filter(Morceau.artiste_id == artist_id).all()
         
-        # Vérifier si l'artiste a des morceaux associés
-        if not songs:
-            raise HTTPException(status_code=404, detail="Aucun morceau trouvé pour cet artiste")
-        
-        # Retourner les morceaux trouvés
+        # Retourner les morceaux (vide si aucun morceau n'est associé)
         return {"artist": artist.nom_artiste, "songs": songs}
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Erreur lors de la récupération des morceaux: {str(e)}")
+
 
 @router.put("/api/artists/{id}")
 def update_artist(id: int, artist: ArtistUpdate, db: Session = Depends(get_db)):

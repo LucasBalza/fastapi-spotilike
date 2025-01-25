@@ -1,3 +1,5 @@
+const apiUrl = 'http://127.0.0.1:8000/api';
+
 // Fonction pour gérer la soumission du formulaire
 document.getElementById('signup-form').addEventListener('submit', async function (event) {
     event.preventDefault();  // Empêcher le rechargement de la page
@@ -15,7 +17,7 @@ document.getElementById('signup-form').addEventListener('submit', async function
 
     try {
         // Envoi de la requête POST à l'API FastAPI
-        const response = await fetch('http://localhost:8000/users/signup', {
+        const response = await fetch(`${apiUrl}/users/signup`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

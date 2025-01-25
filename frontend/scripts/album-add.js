@@ -1,3 +1,5 @@
+const apiUrl = 'http://127.0.0.1:8000/api';
+
 document.getElementById("albumForm").addEventListener("submit", async function(event) {
     event.preventDefault();
 
@@ -17,7 +19,7 @@ document.getElementById("albumForm").addEventListener("submit", async function(e
 
     try {
         // Faire une requête POST pour ajouter l'album
-        const response = await fetch('http://127.0.0.1:8000/api/albums', {
+        const response = await fetch(`${apiUrl}/albums`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

@@ -6,7 +6,7 @@ class UtilisateurCreate(BaseModel):
     email: EmailStr 
 
     class Config:
-        from_attributes = True
+        orm_mode = True
 
 class UtilisateurOut(BaseModel):
     id: int
@@ -14,8 +14,11 @@ class UtilisateurOut(BaseModel):
     email: EmailStr
 
     class Config:
-        from_attributes = True
+        orm_mode = True
         
 class UtilisateurLogin(BaseModel):
     nom_utilisateur: str
     mot_de_passe: str
+    
+    class Config:
+        orm_mode = True

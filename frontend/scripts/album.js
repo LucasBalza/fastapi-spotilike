@@ -54,7 +54,12 @@ async function displayAlbums(albums) {
         updateButton.textContent = 'Modifier';
         updateButton.onclick = () => window.location.href = `album-edit.html?album_id=${album.id}&artiste_id=${album.artiste_id}`;
         actionsCell.appendChild(updateButton);
-        
+
+        const detailsButton = document.createElement('button');
+        detailsButton.textContent = 'Détails';
+        detailsButton.onclick = () => window.location.href = `album-details.html?album_id=${album.id}`;
+        actionsCell.appendChild(detailsButton);
+
         const deleteButton = document.createElement('button');
         deleteButton.textContent = 'Supprimer';
         deleteButton.onclick = () => deleteAlbum(album.id);
@@ -71,7 +76,7 @@ async function displayAlbums(albums) {
 async function deleteAlbum(albumId) {
     try {
         const token = localStorage.getItem('access_token');
-        console.log("Token JWT :", token); 
+        console.log("Token JWT :", token);
 
         if (!token) {
             alert("Vous devez être connecté pour effectuer cette action.");
@@ -100,6 +105,7 @@ async function deleteAlbum(albumId) {
     }
 }
 
+
 async function updateAlbum(albumId, updatedData) {
     const token = localStorage.getItem('access_token');
     if (!token) {
@@ -108,7 +114,7 @@ async function updateAlbum(albumId, updatedData) {
     }
 
     try {
-        const response = await fetch(`http://127.0.0.1:8000/api/albums/${albumId}`, {
+        const response = await fetch(`${apiUrl}/albums/${albumId}`, {
             method: 'PUT',
             headers: {
                 'Authorization': `Bearer ${token}`,

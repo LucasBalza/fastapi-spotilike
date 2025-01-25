@@ -4,36 +4,72 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Ajouter un Morceau</title>
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" href="../styles.css">
     </head>
     <body>
         <!-- Menu de navigation -->
-        <nav>
-            <ul class="menu">
-                <li><a href="index.html">Accueil</a></li>
-                <li><a href="albums.html">Albums</a></li>
-                <li><a href="artists.html">Artistes</a></li>
-                <li><a href="songs.html">Morceaux</a></li>
-                <li><a href="genres.html">Genres</a></li>
-                <li><a href="signup.html">Sign up</a></li>
-                <li><a href="login.html">Sign in</a></li>
-            </ul>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="index.html">Spotilike</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="albums.html">Albums</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="artists.html">Artistes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="songs.html">Morceaux</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="genres.html">Genres</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="signup.html">Sign up</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.html">Sign in</a>
+                    </li>
+                </ul>
+            </div>
         </nav>
 
-        <div class="container">
+        <div class="container mt-5">
             <h2>Ajouter un Morceau à l'Album</h2>
 
-            <form id="songForm">
-                <label for="titre">Titre du morceau :</label>
-                <input type="text" id="titre" name="titre" required>
+            <form id="songForm" class="mt-4">
+                <div class="form-group">
+                    <label for="titre">Titre du morceau</label>
+                    <input type="text" id="titre" name="titre" class="form-control" required>
+                </div>
 
-                <label for="duree">Durée du morceau :</label>
-                <input type="text" id="duree" name="duree" required>
+                <div class="form-group">
+                    <label for="duree">Durée du morceau</label>
+                    <input type="text" id="duree" name="duree" class="form-control" required>
+                </div>
 
-                <button type="submit">Ajouter le Morceau</button>
+                <div class="form-group">
+                    <label for="genre">Genre</label>
+                    <select id="genre" name="genre" class="form-control" required>
+                        <option value>Sélectionnez un genre</option>
+                        <!-- Genre options will be populated here -->
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Ajouter le Morceau</button>
             </form>
         </div>
 
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
         <script src="../scripts/song-add.js"></script>
     </body>
 </html>
